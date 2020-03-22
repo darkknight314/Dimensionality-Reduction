@@ -22,8 +22,7 @@ for (i in 1:num_of_classes){
   #Sum of within class variance
   Sw<-Sw+Sk
   #CALCULATION OF BETWEEN CLASS COVARIANCE
-  central_mean<-class_mean-global_mean
-  central_mean<-central_mean%*%t(central_mean)
+  central_mean<-(class_mean-global_mean)%o%(class_mean-global_mean)
   central_mean<-nrow(class_data)*central_mean
   Sb<-Sb+central_mean
 }
