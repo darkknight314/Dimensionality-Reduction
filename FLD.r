@@ -5,12 +5,11 @@ fld<-function(x,y,new_dim){
     num_of_classes<-length(unique(t(y)))
     org_dim<-nrow(x)
     global_mean<-rowMeans(x)
-    Sw<-matrix(0,org_dim,org_dim)   #Scatter matrix for within class covariance
-    Sb<-matrix(0,org_dim,org_dim)   #Scatter matrix for between class covariance
+    Sw<-matrix(0.0,org_dim,org_dim)   #Scatter matrix for within class covariance
+    Sb<-matrix(0.0,org_dim,org_dim)   #Scatter matrix for between class covariance
     for (i in 1:num_of_classes){
       #CALCULATION OF WITHIN CLASS COVARIANCE
       class_data<-x[,y==i]
-      print(ncol(class_data))
       #Setting mean to 0
       class_mean<-rowMeans(class_data)
       std_data<-sweep(class_data,1,class_mean)
@@ -25,8 +24,9 @@ fld<-function(x,y,new_dim){
     }
     #FINDING TRANFORMATION MATRIX W
     comp<-solve(Sw)%*%Sb
-    eigenInfo<-rARPACK::eigs(comp, new_dim, which = "LM")
+    eigenInfo<-rARPACK::eigs(comp, new_dim, which = "LM")   #Only compute eigen vectors for top new_dim eigen values
     W <- Re(eigenInfo$vectors) # transforming matrix
-    reduced_data<-t(t(W)%*%x)
-    return(reduced_data)
+    reduced_x<-t(t(W)%*%x)
+    reduced_dataset<-cbind(t(y),reduced_x)
+    return(reduced_dataset)
 }
