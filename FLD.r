@@ -1,4 +1,4 @@
-fld<-function(x,y,new_dim){
+fld_reduce<-function(x,y,new_dim){
     #Representing each sample as column vector
     x<-t(x)
     y<-t(y)
@@ -27,6 +27,6 @@ fld<-function(x,y,new_dim){
     eigenInfo<-rARPACK::eigs(comp, new_dim, which = "LM")   #Only compute eigen vectors for top new_dim eigen values
     W <- Re(eigenInfo$vectors) # transforming matrix
     reduced_x<-t(t(W)%*%x)
-    reduced_dataset<-cbind(t(y),reduced_x)
+    reduced_dataset<-data.frame(cbind(t(y),reduced_x))
     return(reduced_dataset)
 }
