@@ -14,10 +14,12 @@ library(caTools)
 library(e1071)
 library(class)
 
-dataset=read.table("wine.data",sep=",")
+
+dataset=read.table("sonar.all-data",sep=",")
+y<-dataset[,61]
+dataset<-cbind(y,dataset[,-61])
 x<-dataset[,-1]
-y<-dataset[,1]
-new_dim<-8
+new_dim<-20
 
 #Original
 org1<-classifySVM(dataset)
@@ -54,13 +56,9 @@ print(org1$cm)
 print(org2$cm)
 cat("Confusion matrix for FLD reduced dataset\n")
 print(fld1$cm)
-print(fld2$cm)
 cat("Confusion matrix for SVD reduced dataset\n")
 print(svd1$cm)
-print(svd2$cm)
 cat("Confusion matrix for PCA reduced dataset\n")
 print(pca1$cm)
-print(pca2$cm)
 cat("Confusion matrix for NCA reduced dataset\n")
 print(nca1$cm)
-print(nca2$cm)

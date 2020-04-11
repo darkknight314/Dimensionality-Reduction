@@ -10,14 +10,17 @@ source("NCA.r")
 source("classifySVM.r")
 source("classifyKNN.r")
 #Include libraries
-library(caTools)
 library(e1071)
+library(caTools)
 library(class)
 
-dataset=read.table("wine.data",sep=",")
+set.seed(132)
+dataset=read.table("ionosphere.data",sep=",")[,-2]
+y<-dataset[,34]
+dataset<-cbind(y,dataset[,-34])
 x<-dataset[,-1]
 y<-dataset[,1]
-new_dim<-8
+new_dim<-15
 
 #Original
 org1<-classifySVM(dataset)

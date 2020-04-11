@@ -1,7 +1,7 @@
 nca <- function( x
                  , labels
                  , A_init = diag(ncol(x))
-                 , N_iter=1e2
+                 , N_iter=2*1e2
                  , learning_rate = 0.01
 ){
   x <- as.matrix(x)

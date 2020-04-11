@@ -1,6 +1,6 @@
 classifySVM<-function(dataset){
   colnames(dataset)[1]<-"V1"
-  set.seed(152)
+  set.seed(724)
   split<-sample.split(dataset,SplitRatio = 0.7)
   training_set<-subset(dataset,split==TRUE)
   testing_set<-subset(dataset,split==FALSE)
