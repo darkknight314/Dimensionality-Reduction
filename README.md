@@ -7,4 +7,6 @@ were utilised:-
 3. Connectionist Bench (Sonar, Mines vs. Rocks) : http://archive.ics.uci.edu/ml/datasets/connectionist+bench+(sonar,+mines+vs.+rocks)
 
 This project was carried out as part of the course BITS F464 Machine Learning under the supervision of Prof. Navneet Goyal.
+You can find the report here : https://github.com/darkknight314/ML-Assignment/wiki/Report%20on%20Supervised%20Dimensionality%20Reduction.pdf
+
 To see the performance on a particular dataset, run the file main-datasetname.r 
