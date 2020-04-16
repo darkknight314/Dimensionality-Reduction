@@ -5,4 +5,5 @@ were utilised:-
 1. Wine Dataset : http://archive.ics.uci.edu/ml/datasets/wine
 2. Ionosphere Dataset : http://archive.ics.uci.edu/ml/datasets/Ionosphere
 3. Connectionist Bench (Sonar, Mines vs. Rocks) : http://archive.ics.uci.edu/ml/datasets/connectionist+bench+(sonar,+mines+vs.+rocks)
+
 This project was carried out as part of the course BITS F464 Machine Learning under the supervision of Prof. Navneet Goyal
